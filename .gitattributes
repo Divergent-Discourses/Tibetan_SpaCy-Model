@@ -1,0 +1,1 @@
+corpus/conllu/train.conllu filter=lfs diff=lfs merge=lfs -text
