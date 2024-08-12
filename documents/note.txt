@@ -1,0 +1,49 @@
+@ Add a new language
+1. fork spaCy to your Github
+	- https://github.com/explosion/spaCy
+2. git clone ... (... refers to your repository / https://github.com/explosion/spaCy.git)
+3. add files
+	- These are the files you need to add.
+		- spacy/lang/.../__init__.py
+		- spacy/lang/.../examples.py
+		- spacy/lang/.../lex_attrs.py
+		- spacy/lang/.../stop_words.py
+		- spacy/tests/conftest.py (add some lines in the file)
+		- spacy/tests/tokenizer/test_explain.py (add some lines in the file)
+		- website/meta/languages.json (add some lines in the file)
+	- In the following, you see the examples:
+		- https://github.com/explosion/spaCy/compare/master...strickvl:spaCy:balochi
+		- https://github.com/explosion/spaCy/compare/master...jnphilipp:spaCy:hsb
+4. run the test
+	- See https://github.com/explosion/spaCy/tree/master/spacy/tests
+	- If you get the error like ModuleNotFoundError: No module named 'spacy.symbols', you can find the solution here: https://github.com/explosion/spaCy/discussions/13184
+5. send a merge request
+	5.1. Go to your forked spaCy repository
+	5.2. Open Pull Requests and click on 'new pull request'
+	5.3. Check if 'head' (your repository) and 'base' (explostion/spaCy) are correct
+	5.4. Send the pull request 
+	- read this page: https://github.com/explosion/spaCy/discussions/12706
+6. Wait until the pull request is accepted
+	- https://github.com/explosion/spaCy/pull/13510
+
+@ Train a model from scratch
+# https://course.spacy.io/en/chapter4
+# https://github.com/explosion/spaCy/discussions/12772
+# https://spacy.io/usage/linguistic-features (Example 1: Basci whitespace tokenizer)
+
+1. python3 -m spacy init fill-config config/base_config.cfg config/tibetan.cfg --code src/functions.py
+	- python3 -m spacy init fill-config config/base_config.cfg config/chinese.cfg --code src/MicroTokenizer_spacy.py
+2. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/train.conllu corpus/train -n 10
+	- python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/train.conllu corpus/train --converter conllu -n 10 -m
+3. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/dev.conllu corpus/dev -n 10
+	- python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/dev.conllu corpus/dev --converter conllu -n 10 -m
+4. python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py
+	- python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py --gpu-id 1
+	- python3 -m spacy train config/chinese.cfg --output ./models --code src/thulac-spacy.py --gpu-id 0
+
+[test]
+1. python3 -m spacy init fill-config config/test_config.cfg config/tibetan_test.cfg --code src/functions.py
+2. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/test/train_test5.conllu corpus/train -n 10
+3. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/dev_test.conllu corpus/dev -n 10
+4. python3 -m spacy train config/tibetan_test.cfg --output ./models --code src/functions.py
+
