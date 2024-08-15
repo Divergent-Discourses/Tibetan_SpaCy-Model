@@ -41,9 +41,6 @@
 	- python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py --gpu-id 1
 	- python3 -m spacy train config/chinese.cfg --output ./models --code src/thulac-spacy.py --gpu-id 0
 
-[test]
-1. python3 -m spacy init fill-config config/test_config.cfg config/tibetan_test.cfg --code src/functions.py
-2. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/test/train_test5.conllu corpus/train -n 10
-3. python3 -m spacy convert /home/yuki/Dropbox/Arbeit/20240112_Divergierende_Diskurse/20240216_POS-Tagger/api/spacy/corpus/conllu/dev_test.conllu corpus/dev -n 10
-4. python3 -m spacy train config/tibetan_test.cfg --output ./models --code src/functions.py
-
+@ Generate an installable Python package from an existing pipeline data
+# https://spacy.io/api/cli#package
+- python3 -m spacy package ./models/model-best ./packages --code src/functions.py --name bo_tagger --version 0.0.1 
