@@ -1,0 +1,63 @@
+{
+  "lang":"xx",
+  "name":"bo_tagger",
+  "version":"0.0.3",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_version":">=3.2.0,<3.3.0",
+  "spacy_git_version":"0fc3dee77",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null
+  },
+  "labels":{
+    "tok2vec":[
+
+    ],
+    "morphologizer":[
+      "POS=PRON",
+      "POS=PROPN",
+      "POS=NOUN",
+      "POS=ADP",
+      "POS=PUNCT",
+      "POS=VERB",
+      "POS=ADV",
+      "POS=NUM",
+      "POS=PART",
+      "POS=AUX",
+      "POS=CCONJ",
+      "POS=DET",
+      "POS=ADJ",
+      "POS=SCONJ",
+      "POS=INTJ",
+      "POS=X",
+      "POS=SYM"
+    ]
+  },
+  "pipeline":[
+    "tok2vec",
+    "morphologizer"
+  ],
+  "components":[
+    "tok2vec",
+    "morphologizer"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "pos_acc":0.9054910447,
+    "morph_acc":0.9915992537,
+    "morph_per_feat":0.0,
+    "tok2vec_loss":5979.8165442944,
+    "morphologizer_loss":19621.577835083
+  },
+  "requirements":[
+
+  ]
+}

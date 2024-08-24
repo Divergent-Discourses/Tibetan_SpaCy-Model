@@ -1,0 +1,3 @@
+[spacy_models]
+xx_bo_tagger = xx_bo_tagger
+

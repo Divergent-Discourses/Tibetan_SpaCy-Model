@@ -7,7 +7,7 @@
 2. python3 -m spacy convert your/path/corpus/conllu/train.conllu corpus/train -n 10
 3. python3 -m spacy convert your/path/corpus/conllu/dev.conllu corpus/dev -n 10
 4. python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py --gpu-id 0
-  - optional without gpu: python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py
+   - optional without gpu: python3 -m spacy train config/tibetan.cfg --output ./models --code src/functions.py
 
 ## Generate an installable Python package from an existing pipeline data
 - https://spacy.io/api/cli#package
