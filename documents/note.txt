@@ -1,4 +1,5 @@
 @ Add a new language
+# https://github.com/explosion/spaCy/discussions/3056
 1. fork spaCy to your Github
 	- https://github.com/explosion/spaCy
 2. git clone ... (... refers to your repository / https://github.com/explosion/spaCy.git)
