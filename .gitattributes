@@ -1,3 +1,4 @@
 corpus/conllu/train.conllu filter=lfs diff=lfs merge=lfs -text
 packages/ filter=lfs diff=lfs merge=lfs -text
 packages/xx_bo_tagger-0.0.2/ filter=lfs diff=lfs merge=lfs -text
+packages/xx_bo_tagger-0.1.2/ filter=lfs diff=lfs merge=lfs -text
