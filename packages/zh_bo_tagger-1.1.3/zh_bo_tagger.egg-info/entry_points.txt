@@ -1,0 +1,2 @@
+[spacy_models]
+zh_bo_tagger = zh_bo_tagger
